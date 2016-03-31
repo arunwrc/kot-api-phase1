@@ -116,6 +116,7 @@ define('UPDATE_FAILED', 'Cannot update data');
 define('DELETED_SUCCESS', 'Data deleted successfully');
 define('DELETE_FAILED', 'Cannot delete data');
 define('NOT_AUTHORISED', 'You are not authorised to perform this action');
+define('LOGIN_SUCCESS', 'Login Successfull');
 define('INVALID_LOGIN', 'Invalid credentials');
 
 
