@@ -5,7 +5,7 @@ class Login_api extends REST_Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('Admin_model');
-        //$this->crossorigin->initiate();
+        $this->crossorigin->initiate();
     }
     
     function adminLogin_post(){
