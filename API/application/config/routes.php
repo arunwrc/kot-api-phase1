@@ -50,7 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
+//Admin Login
 $route['admin/login'] = 'Login_api/adminLogin';
 $route['admin/logout'] = 'Login_api/adminLogout';
 $route['activeuser/admin'] = 'Login_api/ActiveAdminUser';
+//Organisation
+$route['organisations'] = 'Organisations_api/View';
+$route['organisation/create'] = 'Organisations_api/Add';
+$route['organisation/view/(:any)'] = 'Organisations_api/View/$1';
+$route['organisation/update/(:any)'] = 'Organisations_api/Update/$1';
+$route['organisation/delete/(:any)'] = 'Organisations_api/Delete/$1';
+
 $route['translate_uri_dashes'] = FALSE;

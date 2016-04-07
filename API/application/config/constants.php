@@ -105,13 +105,14 @@ define('OPERATIONS', '3');
 define('RESP_STATUS', 'resp_status');
 define('RESP_MSG', 'resp_msg');
 define('RESP_ERROR', 'resp_error');
-define('DATA', 'data');
+define('RESP_DATA', 'resp_data');
 
 define('LISTING_SUCCESS', 'Data listed successfully');
 define('NO_RECORDS', 'No records found');
 define('CREATED_SUCCESS', 'Data created successfully');
 define('CREATE_FAILED', 'Cannot create data');
 define('UPDATED_SUCCESS','Data updated successfully');
+define('ALREADY_UPDATED','Data already updated');
 define('UPDATE_FAILED', 'Cannot update data');
 define('DELETED_SUCCESS', 'Data deleted successfully');
 define('DELETE_FAILED', 'Cannot delete data');
@@ -120,6 +121,7 @@ define('LOGIN_SUCCESS', 'Login Successfull');
 define('LOGOUT_SUCCESS', 'Logout Successfull');
 define('INVALID_LOGIN', 'Invalid credentials');
 define('INVALID_SESSION', 'Login in to perform this action');
+define('VALIDATION_ERROR', 'Please fill out missing fields');
 
 
 /*
