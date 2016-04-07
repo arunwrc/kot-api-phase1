@@ -12,7 +12,7 @@ class Login_api extends REST_Controller {
         /*$data = array(                                            // enable this for testing in postmaster
             'username'=> $this->input->post('username'),
             'password' => $this->input->post('password')
-        );*/  
+        );*/ 
         $data = json_decode(file_get_contents('php://input'),true); // will work with angular or jquery
         if(isset($data['username'])) {
             $username = $data['username'];
@@ -32,6 +32,26 @@ class Login_api extends REST_Controller {
             $this->session->set_userdata('admin_userid',$admin_details['id']);
             $this->session->set_userdata('admin_username',$admin_details['username']);   //echo $_SESSION['admin_username'];
             $this->response(array(RESP_STATUS => HTTP_OK,RESP_MSG => LOGIN_SUCCESS,DATA => $admin_details));
+        }
+    }
+    
+    function ActiveAdminUser_get(){
+        $userID = $this->session->userdata('admin_userid') ;
+        if(! $userID){
+            $this->response(array(RESP_STATUS => HTTP_NON_AUTHORITATIVE_INFORMATION,RESP_MSG => INVALID_SESSION));
+            exit;
+        }else{
+            $this->response(array(RESP_STATUS => HTTP_OK));
+        }
+    }
+    
+    function adminLogout_delete(){
+        if(isset($_SESSION['admin_userid'])){
+            $this->session->sess_destroy();
+            $this->response(array(RESP_STATUS => HTTP_OK,RESP_MSG => LOGOUT_SUCCESS));
+            exit;
+        }else{
+            $this->response(array(RESP_STATUS => HTTP_NO_CONTENT)); 
         }
     }
 
