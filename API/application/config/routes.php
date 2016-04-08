@@ -55,10 +55,14 @@ $route['admin/login'] = 'Login_api/adminLogin';
 $route['admin/logout'] = 'Login_api/adminLogout';
 $route['activeuser/admin'] = 'Login_api/ActiveAdminUser';
 //Organisation
-$route['organisations'] = 'Organisations_api/View';
+$route['organisation/login'] = 'Login_api/organisationLogin';
+$route['organisation/logout'] = 'Login_api/organisationLogout';
+$route['activeuser/organisation'] = 'Login_api/ActiveOrganisationUser';
 $route['organisation/create'] = 'Organisations_api/Add';
+$route['organisation/list'] = 'Organisations_api/ViewAll';
 $route['organisation/view/(:any)'] = 'Organisations_api/View/$1';
 $route['organisation/update/(:any)'] = 'Organisations_api/Update/$1';
 $route['organisation/delete/(:any)'] = 'Organisations_api/Delete/$1';
+
 
 $route['translate_uri_dashes'] = FALSE;

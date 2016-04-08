@@ -24,7 +24,14 @@ class Organisations_api extends REST_Controller {
         }
 
      }
+    function ViewAll_get(){
+        $data=$this->Organisation_model->get_all();
+        if($data){
+            $this->response(array(RESP_STATUS => HTTP_OK,RESP_MSG => LISTING_SUCCESS,RESP_DATA => $data));
+        }
+    }
     function View_get(){
+        $id = $this->uri->segment(3);
         $data=$this->Organisation_model->get_by_id($id);
         if($data){
             $this->response(array(RESP_STATUS => HTTP_OK,RESP_MSG => LISTING_SUCCESS,RESP_DATA => $data));

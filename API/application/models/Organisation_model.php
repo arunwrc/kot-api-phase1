@@ -1,6 +1,16 @@
 <?php
 class Organisation_model extends CI_Model {
-
+    
+    public function login($username,$password){
+        $condition=array(
+            'username'=>$username,
+            'password'=>$password
+        );
+        $this->db->select()->from('organisations')->where($condition);
+        $query=$this->db->get(); 
+        return $res = $query->first_row('array'); 
+    }
+    
     public function get_all(){
         $this->db->order_by("id", "desc");
         $query = $this->db->get("organisations");
@@ -21,6 +31,6 @@ class Organisation_model extends CI_Model {
         $this->db->where('id', $id);
         $this->db->delete("organisations");
     }
-
+    
 
 }
