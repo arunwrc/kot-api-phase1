@@ -63,6 +63,45 @@ $route['organisation/list'] = 'Organisations_api/ViewAll';
 $route['organisation/view/(:any)'] = 'Organisations_api/View/$1';
 $route['organisation/update/(:any)'] = 'Organisations_api/Update/$1';
 $route['organisation/delete/(:any)'] = 'Organisations_api/Delete/$1';
+//User
+$route['user/login'] = 'Login_api/userLogin';
+$route['user/logout'] = 'Login_api/userLogout';
+$route['activeuser/user'] = 'Login_api/ActiveUser';
+$route['user/create'] = 'Users_api/Add';
+$route['user/list'] = 'Users_api/ViewAll';
+$route['user/view/(:any)'] = 'Users_api/View/$1';
+$route['user/update/(:any)'] = 'Users_api/Update/$1';
+$route['user/delete/(:any)'] = 'Users_api/Delete/$1';
+//Itemcategories
+$route['itemcategories/create'] = 'Itemcategories_api/Add';
+$route['itemcategories/list'] = 'Itemcategories_api/ViewAll';
+$route['itemcategories/view/(:any)'] = 'Itemcategories_api/View/$1';
+$route['itemcategories/update/(:any)'] = 'Itemcategories_api/Update/$1';
+$route['itemcategories/delete/(:any)'] = 'Itemcategories_api/Delete/$1';
+//Items
+$route['items/create'] = 'Items_api/Add';
+$route['items/list'] = 'Items_api/ViewAll';
+$route['items/view/(:any)'] = 'Items_api/View/$1';
+$route['items/update/(:any)'] = 'Items_api/Update/$1';
+$route['items/delete/(:any)'] = 'Items_api/Delete/$1';
+//Tables
+$route['tables/create'] = 'Tables_api/Add';
+$route['tables/list'] = 'Tables_api/ViewAll';
+$route['tables/view/(:any)'] = 'Tables_api/View/$1';
+$route['tables/update/(:any)'] = 'Tables_api/Update/$1';
+$route['tables/delete/(:any)'] = 'Tables_api/Delete/$1';
+//Orders
+$route['orders/create'] = 'Orders_api/Add';
+$route['orders/list'] = 'Orders_api/ViewAll';
+$route['orders/view/(:any)'] = 'Orders_api/View/$1';
+$route['orders/update/(:any)'] = 'Orders_api/Update/$1';
+$route['orders/delete/(:any)'] = 'Orders_api/Delete/$1';
+//Reservation
+$route['reservations/create'] = 'Reservations_api/Add';
+$route['reservations/list'] = 'Reservations_api/ViewAll';
+$route['reservations/view/(:any)'] = 'Reservations_api/View/$1';
+$route['reservations/update/(:any)'] = 'Reservations_api/Update/$1';
+$route['reservations/delete/(:any)'] = 'Reservations_api/Delete/$1';
 
 
 $route['translate_uri_dashes'] = FALSE;

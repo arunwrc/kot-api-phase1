@@ -6,6 +6,7 @@ class Login_api extends REST_Controller {
         parent::__construct();
         $this->load->model('Admin_model');
         $this->load->model('Organisation_model');
+        $this->load->model('User_model');
         $this->crossorigin->initiate();
     }
     
@@ -94,6 +95,52 @@ class Login_api extends REST_Controller {
     
     function organisationLogout_delete(){
         if(isset($_SESSION['organisation_userid'])){
+            $this->session->sess_destroy();
+            $this->response(array(RESP_STATUS => HTTP_OK,RESP_MSG => LOGOUT_SUCCESS));
+            exit;
+        }else{
+            $this->response(array(RESP_STATUS => HTTP_NO_CONTENT)); 
+        }
+    }
+    
+    function userLogin_post(){
+        $data = array(                                            // enable this for testing in postmaster
+            'username'=> $this->input->post('username'),
+            'password' => $this->input->post('password')
+        );
+        if(isset($data['username'])) {
+            $username = $data['username'];
+        }else{
+            $username = "";
+        }
+        if(isset($data['password'])) {
+            $password = $data['password'];
+        }else{
+            $password = "";
+        }
+        
+        $user_details=$this->User_model->login($username,$password);
+        if(!$user_details){
+            $this->response(array(RESP_STATUS => HTTP_NO_CONTENT,RESP_MSG => INVALID_LOGIN));
+        }else{
+            $this->session->set_userdata('userid',$user_details['id']);
+            $this->session->set_userdata('username',$user_details['username']);  
+            $this->response(array(RESP_STATUS => HTTP_OK,RESP_MSG => LOGIN_SUCCESS,RESP_DATA => $user_details));
+        }
+    }
+    
+    function ActiveUser_get(){
+        $userID = $this->session->userdata('userid') ;
+        if(! $userID){
+            $this->response(array(RESP_STATUS => HTTP_NON_AUTHORITATIVE_INFORMATION,RESP_MSG => INVALID_SESSION));
+            exit;
+        }else{
+            $this->response(array(RESP_STATUS => HTTP_OK));
+        }
+    }
+    
+    function userLogout_delete(){
+        if(isset($_SESSION['userid'])){
             $this->session->sess_destroy();
             $this->response(array(RESP_STATUS => HTTP_OK,RESP_MSG => LOGOUT_SUCCESS));
             exit;
